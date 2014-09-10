@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: themitchell_development
+
+test:
+  <<: *default
+  database: themitchell_test
+
+production:
+  <<: *default
+  database: themitchell_production
+  username: themitchell
+  password: <%= ENV['THEMITCHELL_DATABASE_PASSWORD'] %>
