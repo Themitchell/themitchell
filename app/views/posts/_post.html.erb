@@ -1,0 +1,10 @@
+<li>
+  <article class="post">
+    <h2><%= link_to(post.title, post_path(post)) %></h2>
+    <p class="published-date">
+      Posted on
+      <%= marked_up_date_or_time(post.published_at) %>
+    </p>
+    <div class="body"><%= post.body %></div>
+  </article>
+</li>

@@ -1,0 +1,10 @@
+<% if @categories.any? %>
+  <nav id="category-nav" class="nav">
+    <h3>Categories:</h3>
+    <ul>
+      <% @categories.each do |category| %>
+        <li><%= link_to category.name, posts_path(category: category.permalink) %></li>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>

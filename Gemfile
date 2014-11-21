@@ -1,10 +1,16 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.1.5'
 
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.0.rc1'
 gem 'pg'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
+gem 'sass-rails'
+gem 'uglifier'
+
+gem 'acts-as-taggable-on'
+gem 'carrierwave'
+gem 'devise'
+gem 'kaminari'
+gem 'rails_admin'
 
 group :development do
   gem 'annotate'
@@ -15,6 +21,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'shoulda-matchers'
 end
 
 group :development, :test do

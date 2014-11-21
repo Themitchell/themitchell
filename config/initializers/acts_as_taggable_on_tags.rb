@@ -1,0 +1,1 @@
+ActsAsTaggableOn::Tag.include(Permalinkable)

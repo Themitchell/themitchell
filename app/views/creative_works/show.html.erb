@@ -1,0 +1,19 @@
+<% content_for :aside do %>
+  <%= render 'shared/nav_category' %>
+<% end %>
+
+<article>
+  <header>
+    <h1><%= @creative_work.title %></h1>
+    <%= link_to("Back", :back, class: 'back-link') %>
+  </header>
+
+  <p class="published-date">
+    Posted on
+    <%= marked_up_date_or_time(@creative_work.published_at) %>
+  </p>
+  <p class="description"><%= @creative_work.description %></p>
+
+  <%= render 'shared/tags', object: @creative_work %>
+
+</article>

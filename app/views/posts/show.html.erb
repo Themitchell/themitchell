@@ -1,0 +1,19 @@
+<% content_for :aside do %>
+  <%= render 'shared/nav_category' %>
+<% end %>
+
+<article>
+  <header>
+    <h1><%= @post.title %></h1>
+    <%= link_to("Back", :back, class: 'back-link') %>
+  </header>
+
+  <p class="published-date">
+    Posted on
+    <%= marked_up_date_or_time(@post.published_at) %>
+  </p>
+  <p class="body"><%= @post.body %></p>
+
+  <%= render 'shared/tags', object: @post %>
+
+</article>

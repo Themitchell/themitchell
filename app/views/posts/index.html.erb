@@ -1,0 +1,17 @@
+<% content_for :aside do %>
+  <%= render 'shared/nav_category' %>
+<% end %>
+
+<header>
+  <h1>Blog</h1>
+</header>
+
+<% if @posts.any? %>
+  <ol class="list">
+    <%= render @posts %>
+  </ol>
+<% else %>
+  <p>There are currently no posts.</p>
+<% end %>
+
+<%= paginate(@posts) %>

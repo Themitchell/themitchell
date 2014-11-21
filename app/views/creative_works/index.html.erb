@@ -1,0 +1,17 @@
+<% content_for :aside do %>
+  <%= render 'shared/nav_category' %>
+<% end %>
+
+<header>
+  <h1>Portfolio</h1>
+</header>
+
+<% if @creative_works.any? %>
+  <ol class="list">
+    <%= render @creative_works %>
+  </ol>
+<% else %>
+  <p>There are currently no creative works.</p>
+<% end %>
+
+<%= paginate(@creative_works) %>
