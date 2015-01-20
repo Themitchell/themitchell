@@ -17,6 +17,7 @@ class Post < ActiveRecord::Base
   include Permalinkable
   include Taggable
   include Paginatable
+  include Publishable
 
   # Associations
   belongs_to :category
