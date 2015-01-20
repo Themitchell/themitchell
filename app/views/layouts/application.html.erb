@@ -5,18 +5,24 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="initial-scale=1">
 </head>
 <body>
 
-  <a href="/" class="logo">themitchell.co.uk</a>
+<a href="/" class="logo">themitchell.co.uk</a>
 
-  <nav>
-    <ul>
-      <li><%= link_to "Blog", posts_path %></a></li>
-    </ul>
-  </nav>
+<nav class="main-nav">
+  <ul>
+    <li><%= link_to "Blog", posts_path %></a></li>
+    <li><%= link_to "Blog", posts_path %></a></li>
+    <li><%= link_to "Blog", posts_path %></a></li>
+    <li><%= link_to "Blog", posts_path %></a></li>
+  </ul>
+</nav>
 
-<%= yield %>
+<main class="main">
+  <%= yield %>
+</main>
 
 </body>
 </html>
