@@ -2,7 +2,7 @@
   <%= render 'shared/nav_category' %>
 <% end %>
 
-<article>
+<article class="post">
   <header>
     <h1><%= @post.title %></h1>
   </header>
@@ -15,7 +15,9 @@
   </p>
 
   <div>
-    <p class="body"><%= @post.body %></p>
+    <div class="body">
+      <%= render_markdown(@post.body) %>
+    </div>
   </div>
 
   <%= render 'shared/tags', object: @post %>

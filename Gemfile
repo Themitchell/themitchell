@@ -12,6 +12,8 @@ gem 'devise'
 gem 'kaminari'
 gem 'rails_admin'
 
+gem "redcarpet"
+
 group :development do
   gem 'annotate'
   gem 'spring'
