@@ -16,22 +16,76 @@ time {
     font-size: inherit;
 }
 
-
 @media screen and (min-width: 480px) {
     h1 {
+        font-size: 4em;
+    }
+    h2 {
         font-size: 3.6em;
     }
-
-    h2 {
-        font-size: 2.8em;
-    }
-
     p {
         font-size: 2em;
     }
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
+    text-align: center;
+    font-family: 'Nixie One', 'courier new', 'monospace';
+    font-weight: lighter;
     text-align: center;
     line-height: 2;
+    text-decoration: none;
+    color: #D1AD67;
+    display: inline-block;
+
+    a {
+        color: #D1AD67;
+    }
+}
+
+p {
+    color: #CCC;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: 'TrendRhSansFour';
+    src: url('trend-sans-four.eot');
+    src: url('trend-sans-four.eot?#iefix') format('embedded-opentype'),
+         url('trend-sans-four.woff2') format('woff2'),
+         url('trend-sans-four.woff') format('woff'),
+         url('trend-sans-four.ttf') format('truetype');
+}
+
+@import url(http://fonts.googleapis.com/css?family=Special+Elite);
+@import url(http://fonts.googleapis.com/css?family=Nixie+One);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:400,300,100);
+
+body {
+    font-family: 'Josefin Slab', 'Times New Roman', 'serif';
+    font-weight: thin;
+}
+
+header {
+    text-align: center;
+}
+
+.site-name {
+    font-family: 'TrendRhSansFour';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 8em;
+    color: #EEE;
+    background: url(swirl.svg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5em;
 }
