@@ -11,53 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204103805) do
+ActiveRecord::Schema.define(version: 20150123112644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: true do |t|
-    t.string   "name",       limit: 255, null: false
-    t.string   "permalink",  limit: 255, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "name",       null: false
+    t.string   "permalink",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "categories", ["permalink"], name: "index_categories_on_permalink", unique: true, using: :btree
 
   create_table "creative_works", force: true do |t|
-    t.string   "title",        limit: 255, null: false
-    t.string   "permalink",    limit: 255, null: false
+    t.string   "title",        null: false
+    t.string   "permalink",    null: false
     t.text     "description"
     t.datetime "published_at"
     t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "creative_works", ["permalink"], name: "index_creative_works_on_permalink", unique: true, using: :btree
   add_index "creative_works", ["published_at"], name: "index_creative_works_on_published_at", using: :btree
 
   create_table "image_assets", force: true do |t|
-    t.string   "file",       limit: 255, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "file",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "media_assets", force: true do |t|
-    t.string   "file",       limit: 255, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "file",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: true do |t|
-    t.string   "title",        limit: 255, null: false
-    t.string   "permalink",    limit: 255, null: false
+    t.string   "title",        null: false
+    t.string   "permalink",    null: false
     t.text     "body"
     t.datetime "published_at"
-    t.integer  "category_id",              null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "category_id",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "summary"
   end
 
   add_index "posts", ["permalink"], name: "index_posts_on_permalink", unique: true, using: :btree
@@ -75,9 +76,9 @@ ActiveRecord::Schema.define(version: 20141204103805) do
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
-    t.string   "taggable_type", limit: 255
+    t.string   "taggable_type"
     t.integer  "tagger_id"
-    t.string   "tagger_type",   limit: 255
+    t.string   "tagger_type"
     t.string   "context",       limit: 128
     t.datetime "created_at"
   end
@@ -86,27 +87,27 @@ ActiveRecord::Schema.define(version: 20141204103805) do
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: true do |t|
-    t.string  "name",           limit: 255,             null: false
-    t.string  "permalink",      limit: 255,             null: false
-    t.integer "taggings_count",             default: 0
+    t.string  "name",                       null: false
+    t.string  "permalink",                  null: false
+    t.integer "taggings_count", default: 0
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
   add_index "tags", ["permalink"], name: "index_tags_on_permalink", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
