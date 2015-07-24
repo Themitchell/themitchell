@@ -1,9 +1,9 @@
 require 'redcarpet'
+require 'custom_markdown_renderer'
 
 module MarkdownHelper
-
   def render_markdown(markdown)
-    Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true).render(markdown).html_safe
+    @@markdown ||= Redcarpet::Markdown.new(CustomMarkdownRenderer, autolink: true)
+    @@markdown.render(markdown).html_safe
   end
-
 end
