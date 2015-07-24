@@ -3,6 +3,7 @@ require 'redcarpet'
 class CustomMarkdownRenderer < Redcarpet::Render::HTML
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::AssetTagHelper
+  include RetinaImageHelper
 
   def parse_media_link(link)
     model_regex = '(\w+)'
@@ -14,40 +15,44 @@ class CustomMarkdownRenderer < Redcarpet::Render::HTML
     {
         model: matches[1],
         id: matches[2],
-        size_x1: "#{(matches[3] || 'original')}_x1".to_sym,
-        size_x2: "#{(matches[3] || 'original')}_x2".to_sym,
+        size: (matches[3] || 'original'),
         class: matches[4]
 
     } if matches
   end
 
   def image(link, title, alt_text)
-    size = nil
-    klass = nil
+    options = {
+      title: title,
+      alt: alt_text
+    }
 
     if nil != (parse = parse_media_link(link))
-      media = parse[:model].constantize.where(id: parse[:id]).first ||
-              parse[:model].constantize.where(name: parse[:id]).first
-      if media
-        link = media.file.url(parse[:size_x1])
-        link_x2 = media.file.url(parse[:size_x2])
-        klass = parse[:class]
+      if media = find_media(parse[:model], parse[:id])
+        link = media.file.url("#{parse[:size]}_1x".to_sym)
+        options[:class] = parse[:class]
       end
     end
 
-    image_tag(link, :title => title, :alt => alt_text, :class => klass)
+    retina_image_tag(link, options)
   end
 
   def link(link, title, content)
     klass = nil
     if nil != (parse = parse_media_link(link))
-      media = Media.find_by_id(parse[:id]) || Media.find_by_name(parse[:id])
-      if media
+      if media = find_media(parse[:model], parse[:id])
         link = media.file.url(parse[:size])
         klass = parse[:class]
       end
     end
 
-    link_to(content, link, :title => title, :class => klass)
+    link_to(content, link, title: title, class: klass)
+  end
+
+private
+  def find_media(model, finder_param)
+    model.constantize.where(id: finder_param).first ||
+    model.constantize.where(name: finder_param).first ||
+    model.constantize.where(title: finder_param).first
   end
 end

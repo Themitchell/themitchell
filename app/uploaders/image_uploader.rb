@@ -8,11 +8,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   process convert: 'png'
 
-  version :default_x2 do
+  version :default_2x do
     process resize_to_limit: [1920, 1188]
   end
 
-  version :default_x1, from_version: :default_x2 do
+  version :default_1x, from_version: :default_2x do
     process scale: 0.5
   end
 
