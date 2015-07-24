@@ -19,6 +19,7 @@ FactoryGirl.define do
   factory :post do
     sequence(:title)          { |n| "test post #{n}" }
     permalink                 { title.parameterize }
+    summary                   'This is a factory generated post summary'
     body                      'This is a factory generated post body'
     sequence(:published_at)   { |n| n.minutes.from_now }
     association :category,    factory: :category

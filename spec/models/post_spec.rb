@@ -26,6 +26,8 @@ RSpec.describe Post, type: :model do
       it { is_expected.to_not allow_value("").for     :title }
       it { is_expected.to     validate_presence_of    :body }
       it { is_expected.to_not allow_value("").for     :body }
+      it { is_expected.to     validate_presence_of    :summary }
+      it { is_expected.to_not allow_value("").for     :summary }
       it { is_expected.to     validate_presence_of    :category }
     end
 

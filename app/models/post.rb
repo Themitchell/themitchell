@@ -25,6 +25,7 @@ class Post < ActiveRecord::Base
   # Validations
   validates :title,         presence: true, uniqueness: true
   validates :body,          presence: true
+  validates :summary,       presence: true
   validates :category,      presence: true
 
 end
