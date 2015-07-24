@@ -20,11 +20,17 @@ module Themitchell
 
     config.i18n.default_locale = :en
 
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
     config.generators do |g|
       g.test_framework :rspec,
         fixture: true,
         views: false,
         fixture_replacement: :factory_girl
+    end
+
+    config.after_initialize do |app|
+      app.config.paths.add 'app/presenters', :eager_load => true
     end
   end
 end
