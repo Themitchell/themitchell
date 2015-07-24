@@ -14,6 +14,7 @@ feature 'Blog Pages', %q{
   scenario '1 post' do
     post = FactoryGirl.create(:post,
       title: 'My Post',
+      summary: 'This is my post summary.',
       body: 'This is my post.',
       published_at: '01-01-2010',
       tag_list: 'Apple, Ableton',
@@ -23,7 +24,7 @@ feature 'Blog Pages', %q{
     within 'ol' do
       within :xpath, 'li[1]' do
         expect(page).to have_content('My Post')
-        expect(page).to have_content('This is my post.')
+        expect(page).to have_content('This is my post summary.')
         expect(page).to have_content('1 January 2010')
 
         click_link 'My Post'
