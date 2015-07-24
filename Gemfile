@@ -11,8 +11,8 @@ gem 'carrierwave'
 gem 'devise'
 gem 'kaminari'
 gem 'rails_admin'
-
-gem "redcarpet"
+gem 'redcarpet'
+gem 'mini_magick'
 
 group :development do
   gem 'annotate'
@@ -29,5 +29,6 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry'
+  gem 'rb-readline'
   gem 'rspec-rails'
 end
