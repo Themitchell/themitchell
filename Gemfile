@@ -13,6 +13,7 @@ gem 'kaminari'
 gem 'rails_admin'
 gem 'redcarpet'
 gem 'mini_magick'
+gem 'highline'
 
 group :development do
   gem 'annotate'
