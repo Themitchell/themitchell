@@ -1,63 +1,7 @@
-h1 {
-    font-size: 3em;
-}
-
-h2 {
-    font-size: 2.2em;
-}
-
-p {
-    line-height: 1.4;
-    font-size: 1.8em;
-    color: #333;
-}
-
-time {
-    font-size: inherit;
-}
-
-@media screen and (min-width: 480px) {
-    h1 {
-        font-size: 4em;
-    }
-    h2 {
-        font-size: 3.6em;
-    }
-    p {
-        font-size: 2em;
-    }
-}
-
-h1,
-h2,
-h3 {
-    text-align: center;
-    font-family: 'Nixie One', 'courier new', 'monospace';
-    font-weight: lighter;
-    text-align: center;
-    line-height: 2;
-    text-decoration: none;
-    color: #D1AD67;
-    display: inline-block;
-
-    a {
-        color: #D1AD67;
-    }
-}
-
-p {
-    color: #CCC;
-    font-weight: normal;
-}
-
-a {
-    text-decoration: none;
-}
-
 @font-face {
     font-family: 'TrendRhSansFour';
     src: url('trend-sans-four.eot');
-    src: url('trend-sans-four.eot?#iefix') format('embedded-opentype'),
+    src: url('trend-sans-four.eot?#iefix') format('rembedded-opentype'),
          url('trend-sans-four.woff2') format('woff2'),
          url('trend-sans-four.woff') format('woff'),
          url('trend-sans-four.ttf') format('truetype');
@@ -67,25 +11,146 @@ a {
 @import url(http://fonts.googleapis.com/css?family=Nixie+One);
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab:400,300,100);
 
+$title-color: #EEE;
+$alt-title-color: #D1AD67;
+$text-color: #CCC;
+$link-color: #AAA;
+
+$title-font-family: 'TrendRhSansFour';
+$alt-title-font-family: 'Nixie One', 'courier new', 'monospace';
+$text-font-family: 'Josefin Slab', 'Times New Roman', 'serif';
+
+// Sizes
+// =====
+
 body {
-    font-family: 'Josefin Slab', 'Times New Roman', 'serif';
-    font-weight: thin;
+    font-size: 62.5%; // 1rem = 10px in standard browsers
 }
 
-header {
-    text-align: center;
+h1,
+h2 {
+    line-height: 2;
+}
+
+.main {
+    // Sets gremeric font styles
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 .site-name {
-    font-family: 'TrendRhSansFour';
+    font-size: 2rem;
+}
+
+h1 {
+    font-size: 1.4rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+@media screen and (min-width: 480px) {
+    .main {
+        // Sets gremeric font styles for large screens
+        font-size: 1.2rem;
+    }
+
+    .site-name {
+        font-size: 3rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .main {
+        // Sets gremeric font styles for large screens
+        font-size: 1.4rem;
+    }
+
+    .site-name {
+        font-size: 5rem;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+}
+
+// Font families
+// =============
+
+body {
+    font-family: $text-font-family;
+    font-weight: thin;
+}
+
+.site-name {
+    font-family: $title-font-family;
     font-weight: normal;
-    font-style: normal;
-    font-size: 8em;
-    color: #EEE;
+}
+
+h1,
+h2,
+h3 {
+    font-family: $alt-title-font-family;
+    font-weight: lighter;
+}
+
+// Colours
+// =======
+
+body {
+    color: $text-color;
+}
+
+.site-name {
+    color: $title-color;
+}
+
+h1,
+h2 {
+    color: $alt-title-color;
+
+    a {
+        color: $alt-title-color;
+    }
+}
+
+a {
+    color: $link-color;
+}
+
+// Formatting
+// ==========
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+}
+
+.site-name {
     background: url(swirl.svg);
     background-repeat: no-repeat;
     background-position: center bottom;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
 }
