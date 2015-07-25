@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
                   :rememberable,
                   :trackable,
                   :validatable,
-                  authentication_keys: [:login]
+                  authentication_keys: [:email]
                   # others are:- :token_authenticatable, :lockable, :timeoutable and :activatable
 
 end
