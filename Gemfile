@@ -32,4 +32,5 @@ group :development, :test do
   gem 'pry'
   gem 'rb-readline'
   gem 'rspec-rails'
+  gem 'dotenv-rails'
 end

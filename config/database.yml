@@ -5,14 +5,14 @@ default: &default
 
 development:
   <<: *default
-  database: themitchell_development
+  database: <%= ENV['THEMITCHELL_DATABASE_NAME'] %>
 
 test:
   <<: *default
-  database: themitchell_test
+  database: <%= ENV['THEMITCHELL_DATABASE_NAME'] %>
 
 production:
   <<: *default
-  database: themitchell_production
-  username: themitchell
+  database: <%= ENV['THEMITCHELL_DATABASE_NAME'] %>
+  username: <%= ENV['THEMITCHELL_DATABASE_USERNAME'] %>
   password: <%= ENV['THEMITCHELL_DATABASE_PASSWORD'] %>
